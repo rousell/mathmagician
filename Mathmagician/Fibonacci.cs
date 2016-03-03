@@ -8,7 +8,7 @@ namespace Mathmagician
 {
     public class Fibonacci : Integer
     {
-        private int[] elements; 
+        private int[] elements;
         public Fibonacci()
         {
             First = 1;
@@ -19,18 +19,27 @@ namespace Mathmagician
             elements[2] = 2;
             elements[3] = 3;
             elements[4] = 5;
+<<<<<<< HEAD
             
 
 
             for (int n = 6; n < Max; n++)
             {
                 elements[n-1] = GetNthCached(n);
+=======
+
+            for (int n = 6; n < Max; n++)
+            {
+                elements[n - 1] = GetNthCached(n);
+>>>>>>> upstream/mar_02
             }
         }
 
         public override int GetNext(int current)
         {
-            return GetNth(current + 1);
+            int actual_index = Array.FindIndex(elements, value => 8 == value);
+
+            return elements[actual_index+1];
         }
 
         public int GetNth(int n)
@@ -50,6 +59,7 @@ namespace Mathmagician
         {
             if (n <= 0) { throw new Exception(); }
 
+<<<<<<< HEAD
             //if (elements[n-1]!=0)
             
             if (n <= 5)
@@ -58,15 +68,29 @@ namespace Mathmagician
             }
             else
             {
+=======
+            if (elements[n-1] != 0)
+            {
+                return elements[n-1];
+            } else
+            {
+
+>>>>>>> upstream/mar_02
                 int first_term;
                 if (elements[n-2] == 0)
                 {
                     first_term = GetNthCached(n - 1);
                     elements[n - 2] = first_term;
+<<<<<<< HEAD
                 }
                 else
                 {
                     first_term = elements[n - 2];
+=======
+                } else
+                {
+                    first_term = elements[n-2];
+>>>>>>> upstream/mar_02
                 }
 
                 int second_term;
@@ -79,7 +103,10 @@ namespace Mathmagician
                 {
                     second_term = elements[n - 3];
                 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/mar_02
                 return first_term + second_term;
             }
         }

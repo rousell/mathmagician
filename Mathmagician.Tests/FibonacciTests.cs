@@ -62,7 +62,7 @@ namespace Mathmagician.Tests
             Fibonacci my_Fibonaccis = new Fibonacci();
 
             // Act
-            int actual = my_Fibonaccis.GetNth(10);
+            int actual = my_Fibonaccis.GetNthCached(10);
             int expected = 55;
 
             // Assert
@@ -93,6 +93,7 @@ namespace Mathmagician.Tests
             // Act
             my_fibo.GetNth(-2);
         }
+<<<<<<< HEAD
         [TestMethod]
         public void FibonacciCalc4thFiboWithCache()
         {
@@ -119,11 +120,43 @@ namespace Mathmagician.Tests
             //Assert
             Assert.AreEqual(expected, actual);
         }
+=======
+
+        [TestMethod]
+        public void FibonacciCalc4thFiboWithCache()
+        {
+            // Arrange
+            Fibonacci my_fibo = new Fibonacci();
+
+            // Act
+            int actual = my_fibo.GetNthCached(4);
+            int expected = 3;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void FibonacciCalc30thFiboWithCache()
+        {
+            // Arrange
+            Fibonacci my_fibo = new Fibonacci();
+
+            // Act
+            int actual = my_fibo.GetNthCached(30);
+            int expected = 832040;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+>>>>>>> upstream/mar_02
         [TestMethod]
         public void ArraysAreTheItemsThere()
         {
             int[] elements = new int[10];
             elements[0] = 2;
+<<<<<<< HEAD
             elements[1] = 3;
 
             int actual = elements[2];
@@ -138,6 +171,36 @@ namespace Mathmagician.Tests
             int[] my_sequence = new int[] { 1, 1, 2, 3, 5, 8, 13, 21, 34 };
             int actual_index = Array.FindIndex(my_sequence, 8);
             int expected_index = 5;
+=======
+            elements[1] = 4;
+            
+            int actual = elements[2];
+            int expected;
+
+            Assert.AreEqual(0, actual);
+        }
+
+        [TestMethod]
+        public void ArrayHowDoIUseFindIndex()
+        {
+            int[] my_sequence = new int[] { 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 };
+
+            int actual_index = Array.FindIndex(my_sequence, value => 8 == value);
+            int expected_index = 5;
+
+            Assert.AreEqual(expected_index, actual_index);
+        }
+
+        public static bool GetIt8(int value)
+        {
+            if (value == 8)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+>>>>>>> upstream/mar_02
         }
     }
 }
